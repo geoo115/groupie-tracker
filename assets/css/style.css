@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+  background-color: #f0f0f0;
+  /* background: url("path/to/background-image.jpg") no-repeat center center fixed; */
+  background-size: cover;
+  font-family: 'Helvetica', sans-serif;
+  color: #333;
+}
+
+h1 {
+  color: rgb(13, 120, 29);
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #555;
+}
+
+.navbar a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Search Styles */
+.search {
+  margin-bottom: 20px;
+  text-align: center;
+  word-spacing: 5px;
+}
+
+/* Image Styles */
+img {
+  border: 3px solid rgb(34, 188, 57);
+  padding: 4px;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Letter Link Styles */
+.letter-link {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 1px solid rgb(9, 155, 31);
+  border-radius: 20px;
+  text-decoration: none;
+  color: rgb(13, 120, 29);
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.letter-link:hover {
+  background-color: rgb(12, 39, 16);
+  color: white;
+}
+
+.no-bands {
+  font-style: italic;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .band-info {
+    width: 48%; /* Show two artists in one row on smaller screens */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* Display four artists in one row on larger screens */
+  .band-container {
+    padding-left: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .band-info {
+    width: 23%; /* 4 artists in one row with a little space between */
+    margin-bottom: 20px;
+  }
+
+  .band-info:nth-child(4n) {
+    margin-right: 0; /* Remove right margin for the fourth artist to fit 4 in one row */
+  }
+}
+
+/* Toggle Styles */
+/* Hide the checkboxes */
+input.toggle-section {
+  display: none;
+}
+
+/* Hide the dates sections by default */
+ul.dates, ul.locations, .dates-locations {
+  display: none;
+}
+
+/* Show the dates sections when the corresponding checkbox is checked */
+input.toggle-section:checked ~ ul.dates, input.toggle-section:checked ~ ul.locations, input.toggle-section:checked ~ .dates-locations {
+  display: block;
+}
+
+/* Styling for the toggle label */
+label {
+  display: block;
+  cursor: pointer;
+  color: blue; /* Customize the color as needed */
+}
+
+label:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>Groupie Trackers</title>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+      <a class="btn" href="/">Home</a>
+      <a class="btn active" href="/dates">Dates</a>
+      <a class="btn" href="/loc">Locations</a>
+      <a class="btn" href="/rel">Relations</a>
+    </div>
+
+    <h1>Dates Information</h1>
+
+    <!-- Alphabet Links -->
+    <div class="search">
+      {{range $i, $letter := .Alphabet}}
+      <a class="letter-link" href="/dates?letter={{$letter}}">{{$letter}}</a>
+      {{end}}
+    </div>
+
+    {{if .Artists}}
+    <div class="band-container">
+      {{range .Artists}}
+      <div class="band-info">
+        <img class="resize" src="{{.Image}}" alt="{{.Name}}" />
+        <p><strong>Name:</strong> {{.Name}}</p>
+        <label for="dates{{.ID}}">Dates</label>
+        <input type="checkbox" id="dates{{.ID}}" class="toggle-section" />
+        <ul class="no-pad dates">
+          {{range .Dates.Index}} {{range .Dates}}
+          <li class="no-style">{{.}}</li>
+          {{end}} {{end}}
+        </ul>
+      </div>
+      {{end}}
+    </div>
+    {{else}}
+    <p class="no-bands">There are no bands added yet.</p>
+    {{end}}
+
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
